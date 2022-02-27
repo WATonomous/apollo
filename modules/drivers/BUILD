@@ -9,6 +9,7 @@ install(
     deps = [
         ":pb_drivers",
         "//modules/drivers/camera:install",
+        "//modules/drivers/wato:install",
         "//modules/drivers/gnss:install",
         "//modules/drivers/lidar:install",
         "//modules/drivers/microphone:install",

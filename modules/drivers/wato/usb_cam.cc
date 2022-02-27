@@ -184,7 +184,7 @@ void UsbCam::mjpeg2rgb(char* mjpeg_buffer, int len, char* rgb_buffer,
 #endif
 
   if (!got_picture) {
-    AERROR << "Camera: expected picture but didn't get it...";
+    AERROR << "Wato: expected picture but didn't get it...";
     return;
   }
 
@@ -226,7 +226,7 @@ void UsbCam::mjpeg2rgb(char* mjpeg_buffer, int len, char* rgb_buffer,
   }
 }
 
-bool UsbCam::poll(const CameraImagePtr& raw_image) {
+bool UsbCam::poll(const WatoImagePtr& raw_image) {
   raw_image->is_new = 0;
   // free memory in this struct desturctor
   memset(raw_image->image, 0, raw_image->image_size * sizeof(char));
@@ -768,7 +768,7 @@ bool UsbCam::stop_capturing(void) {
   return true;
 }
 
-bool UsbCam::read_frame(CameraImagePtr raw_image) {
+bool UsbCam::read_frame(WatoImagePtr raw_image) {
   struct v4l2_buffer buf;
   unsigned int i = 0;
   int len = 0;
@@ -927,7 +927,7 @@ bool UsbCam::read_frame(CameraImagePtr raw_image) {
   return true;
 }
 
-bool UsbCam::process_image(void* src, int len, CameraImagePtr dest) {
+bool UsbCam::process_image(void* src, int len, WatoImagePtr dest) {
   if (src == nullptr || dest == nullptr) {
     AERROR << "process image error. src or dest is null";
     return false;

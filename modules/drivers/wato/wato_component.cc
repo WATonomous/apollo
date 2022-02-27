@@ -20,7 +20,7 @@ namespace apollo {
 namespace drivers {
 namespace wato {
 
-bool CameraComponent::Init() {
+bool WatoComponent::Init() {
   wato_config_ = std::make_shared<Config>();
   if (!apollo::cyber::common::GetProtoFromFile(config_file_path_,
                                                wato_config_.get())) {
@@ -30,7 +30,7 @@ bool CameraComponent::Init() {
 
   wato_device_.reset(new UsbCam());
   wato_device_->init(wato_config_);
-  raw_image_.reset(new CameraImage);
+  raw_image_.reset(new WatoImage);
 
   raw_image_->width = wato_config_->width();
   raw_image_->height = wato_config_->height();
@@ -77,11 +77,11 @@ bool CameraComponent::Init() {
   }
 
   writer_ = node_->CreateWriter<Image>(wato_config_->channel_name());
-  async_result_ = cyber::Async(&CameraComponent::run, this);
+  async_result_ = cyber::Async(&WatoComponent::run, this);
   return true;
 }
 
-void CameraComponent::run() {
+void WatoComponent::run() {
   running_.exchange(true);
   while (!cyber::IsShutdown()) {
     if (!wato_device_->wait_for_device()) {
@@ -110,7 +110,7 @@ void CameraComponent::run() {
   }
 }
 
-CameraComponent::~CameraComponent() {
+WatoComponent::~WatoComponent() {
   if (running_.load()) {
     running_.exchange(false);
     async_result_.wait();

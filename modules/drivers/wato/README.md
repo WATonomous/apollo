@@ -1,4 +1,4 @@
-####Driver for V4L USB Cameras
+####Driver for V4L USB Watos
 This package is based on V4L devices specifically instead of just UVC.
 
 ### License

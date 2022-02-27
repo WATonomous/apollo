@@ -1,4 +1,4 @@
-## Camera
+## Wato
 wato包是基于V4L USB相机设备实现封装，提供图像采集及发布的功能。本驱动中使用了一台长焦相机和一台短焦相机。
 
 ### Output channels

@@ -37,10 +37,10 @@ using apollo::cyber::Writer;
 using apollo::drivers::Image;
 using apollo::drivers::wato::config::Config;
 
-class CameraComponent : public Component<> {
+class WatoComponent : public Component<> {
  public:
   bool Init() override;
-  ~CameraComponent();
+  ~WatoComponent();
 
  private:
   void run();
@@ -48,7 +48,7 @@ class CameraComponent : public Component<> {
   std::shared_ptr<Writer<Image>> writer_ = nullptr;
   std::unique_ptr<UsbCam> wato_device_;
   std::shared_ptr<Config> wato_config_;
-  CameraImagePtr raw_image_ = nullptr;
+  WatoImagePtr raw_image_ = nullptr;
   std::vector<std::shared_ptr<Image>> pb_image_buffer_;
   uint32_t spin_rate_ = 200;
   uint32_t device_wait_ = 2000;
@@ -59,7 +59,7 @@ class CameraComponent : public Component<> {
   std::atomic<bool> running_ = {false};
 };
 
-CYBER_REGISTER_COMPONENT(CameraComponent)
+CYBER_REGISTER_COMPONENT(WatoComponent)
 }  // namespace wato
 }  // namespace drivers
 }  // namespace apollo

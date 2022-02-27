@@ -3,7 +3,7 @@ module_config {
     module_library : "/apollo/bazel-bin/modules/drivers/wato/libwato_component.so"
 
     components {
-      class_name : "CameraComponent"
+      class_name : "WatoComponent"
       config {
         name : "wato_front_6mm"
         config_file_path : "/apollo/modules/drivers/wato/conf/wato_front_6mm.pb.txt"
@@ -11,7 +11,7 @@ module_config {
     }
 
     components {
-      class_name : "CameraComponent"
+      class_name : "WatoComponent"
       config {
         name : "wato_front_12mm"
         config_file_path : "/apollo/modules/drivers/wato/conf/wato_front_12mm.pb.txt"
@@ -19,7 +19,7 @@ module_config {
     }
 
     components {
-      class_name : "CameraComponent"
+      class_name : "WatoComponent"
       config {
         name : "wato_front_fisheye"
         config_file_path : "/apollo/modules/drivers/wato/conf/wato_front_fisheye.pb.txt"
@@ -27,7 +27,7 @@ module_config {
     }
 
     # components {
-    #   class_name : "CameraComponent"
+    #   class_name : "WatoComponent"
     #   config {
     #     name : "wato_left_front"
     #     config_file_path : "/apollo/modules/drivers/wato/conf/wato_left_front.pb.txt"
@@ -35,7 +35,7 @@ module_config {
     # }
 
     # components {
-    #   class_name : "CameraComponent"
+    #   class_name : "WatoComponent"
     #   config {
     #     name : "wato_left_rear"
     #     config_file_path : "/apollo/modules/drivers/wato/conf/wato_left_rear.pb.txt"
@@ -43,7 +43,7 @@ module_config {
     # }
 
     components {
-      class_name : "CameraComponent"
+      class_name : "WatoComponent"
       config {
         name : "wato_left_fisheye"
         config_file_path : "/apollo/modules/drivers/wato/conf/wato_left_fisheye.pb.txt"
@@ -51,7 +51,7 @@ module_config {
     }
 
     # components {
-    #   class_name : "CameraComponent"
+    #   class_name : "WatoComponent"
     #   config {
     #     name : "wato_right_front"
     #     config_file_path : "/apollo/modules/drivers/wato/conf/wato_right_front.pb.txt"
@@ -59,7 +59,7 @@ module_config {
     # }
 
     # components {
-    #   class_name : "CameraComponent"
+    #   class_name : "WatoComponent"
     #   config {
     #     name : "wato_right_rear"
     #     config_file_path : "/apollo/modules/drivers/wato/conf/wato_right_rear.pb.txt"
@@ -67,7 +67,7 @@ module_config {
     # }
 
     components {
-      class_name : "CameraComponent"
+      class_name : "WatoComponent"
       config {
         name : "wato_right_fisheye"
         config_file_path : "/apollo/modules/drivers/wato/conf/wato_right_fisheye.pb.txt"
@@ -75,7 +75,7 @@ module_config {
     }
 
     components {
-      class_name : "CameraComponent"
+      class_name : "WatoComponent"
       config {
         name : "wato_rear_6mm"
         config_file_path : "/apollo/modules/drivers/wato/conf/wato_rear_6mm.pb.txt"

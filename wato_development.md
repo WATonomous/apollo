@@ -3,6 +3,8 @@
 
 ## Setup Dev Environment
 
+Taken from apollo docs, just leaving it here for convenience
+
 ```bash
 bash docker/scripts/dev_start.sh
 bash docker/scripts/dev_into.sh

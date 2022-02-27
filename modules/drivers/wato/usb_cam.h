@@ -79,7 +79,7 @@ using apollo::drivers::wato::config::RGB;
 using apollo::drivers::wato::config::YUYV;
 
 // wato raw image struct
-struct CameraImage {
+struct WatoImage {
   int width;
   int height;
   int bytes_per_pixel;
@@ -89,7 +89,7 @@ struct CameraImage {
   int tv_usec;
   char* image;
 
-  ~CameraImage() {
+  ~WatoImage() {
     if (image != nullptr) {
       free(reinterpret_cast<void*>(image));
       image = nullptr;
@@ -97,7 +97,7 @@ struct CameraImage {
   }
 };
 
-typedef std::shared_ptr<CameraImage> CameraImagePtr;
+typedef std::shared_ptr<WatoImage> WatoImagePtr;
 
 struct buffer {
   void* start;
@@ -111,7 +111,7 @@ class UsbCam {
 
   virtual bool init(const std::shared_ptr<Config>& wato_config);
   // user use this function to get wato frame data
-  virtual bool poll(const CameraImagePtr& raw_image);
+  virtual bool poll(const WatoImagePtr& raw_image);
 
   bool is_capturing();
   bool wait_for_device(void);
@@ -143,8 +143,8 @@ class UsbCam {
   bool set_adv_trigger(void);
   bool close_device(void);
   bool open_device(void);
-  bool read_frame(CameraImagePtr raw_image);
-  bool process_image(void* src, int len, CameraImagePtr dest);
+  bool read_frame(WatoImagePtr raw_image);
+  bool process_image(void* src, int len, WatoImagePtr dest);
   bool start_capturing(void);
   bool stop_capturing(void);
   void reconnect();
