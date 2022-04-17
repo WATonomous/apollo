@@ -26,6 +26,7 @@
 
 #include "modules/bridge/proto/udp_bridge_remote_info.pb.h"
 #include "modules/canbus/proto/chassis.pb.h"
+#include "modules/drivers/proto/sensor_image.pb.h"
 
 #include "cyber/class_loader/class_loader.h"
 #include "cyber/component/component.h"
@@ -79,6 +80,7 @@ class UDPBridgeReceiverComponent final : public cyber::Component<> {
   std::vector<BridgeProtoDiserializedBuf<T> *> proto_list_;
 };
 
+RECEIVER_BRIDGE_COMPONENT_REGISTER(drivers::Image)
 RECEIVER_BRIDGE_COMPONENT_REGISTER(canbus::Chassis)
 }  // namespace bridge
 }  // namespace apollo
